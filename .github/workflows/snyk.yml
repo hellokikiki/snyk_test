@@ -18,7 +18,7 @@ jobs:
 
       - name: Install Node.js
         uses: actions/setup-node@v3
-        with
+        with:
           node-version: '16'
 
       - name: Install dependencies
@@ -29,4 +29,4 @@ jobs:
         with:
           args: --severity-threshold=high
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: ${{ 2386b513-65b8-4f49-a764-8961b3e397a6 }}
