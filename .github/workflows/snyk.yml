@@ -1,17 +1,10 @@
 name: Snyk Security Scan
 
-on:
-  push:
-    branches:
-      - master  # master 브랜치에 코드가 푸시될 때 실행
-  pull_request:
-    branches:
-      - master  # master 브랜치에 PR이 생성될 때 실행
+on: [push, pull_request]
 
 jobs:
   security:
-    runs-on: ubuntu-latest  # 실행 환경 (리눅스 서버)
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,7 +12,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 16
 
       - name: Install dependencies
         run: npm install
@@ -29,4 +22,5 @@ jobs:
         with:
           args: --severity-threshold=high
         env:
-          SNYK_TOKEN: ${{ 2386b513-65b8-4f49-a764-8961b3e397a6 }}
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+' > .github/workflows/snyk.yml
