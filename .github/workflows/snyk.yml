@@ -23,4 +23,3 @@ jobs:
           args: --severity-threshold=high
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-' > .github/workflows/snyk.yml
